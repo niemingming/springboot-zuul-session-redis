@@ -1,0 +1,14 @@
+zuul:
+  routes:
+    service0:
+    #设置敏感头部信息。
+      sensitiveHeaders: test
+      path: /api/**
+      url: http://localhost:8080/
+    service1:
+      path: /api2/**
+      url: http://localhost:8090/
+      sensitiveHeaders: "*"
+  #增加代理的header，防止session丢失
+server:
+  port: 8000
